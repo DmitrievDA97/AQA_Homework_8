@@ -28,5 +28,13 @@ public class SqlHelper {
         return runner.query(conn, code, new ScalarHandler<>());
     }
 
+    @SneakyThrows
+    public static void databaseCleanup() {
+        runner.execute(conn, "DELETE FROM auth_codes");
+        runner.execute(conn, "DELETE FROM card_transactions");
+        runner.execute(conn, "DELETE FROM cards");
+        runner.execute(conn, "DELETE FROM users");
+
+    }
 
 }

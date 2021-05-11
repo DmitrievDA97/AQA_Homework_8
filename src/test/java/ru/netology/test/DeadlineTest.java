@@ -1,6 +1,7 @@
 package ru.netology.test;
 
 import lombok.val;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
@@ -13,6 +14,11 @@ public class DeadlineTest {
     @BeforeEach
     void setup() {
         open("http://localhost:9999");
+    }
+
+    @AfterAll
+    static void cleaning() {
+        SqlHelper.databaseCleanup();
     }
 
 
